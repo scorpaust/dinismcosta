@@ -10,6 +10,9 @@ const Navigation = () => {
                     <div className="logo-text">Dinis Costa</div>
                 </Link>
                 <div className="nav-links-container">
+                    <Link className="nav-link" to="/autenticacao">
+                        AUTENTICAÇÃO
+                    </Link>
                     <Link className="nav-link" to="/sobre">
                         SOBRE MIM
                     </Link>
