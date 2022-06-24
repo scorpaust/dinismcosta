@@ -25,11 +25,12 @@
     }
   
     &.google-sign-in {
-      background-color: $color3;
-      color: white;
+      background-color: $color5;
+      color: $color1;
   
       &:hover {
-        background-color: $color1;
+        background-color: $color4;
+        color: $color2;
         border: none;
       }
     }
