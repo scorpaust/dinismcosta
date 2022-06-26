@@ -37,8 +37,8 @@
   
     &.inverted {
       background-color: white;
-      color: black;
-      border: 1px solid black;
+      color: $color2;
+      border: 1px solid $color2;
   
       &:hover {
         background-color: black;
