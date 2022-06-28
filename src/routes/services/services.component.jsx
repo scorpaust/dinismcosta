@@ -1,19 +1,16 @@
-import { useContext } from "react";
-import { ServicesContext } from "../../context/services.context";
-import ServiceCard from "../../components/service-card/service-card.component";
-import './services.styles.scss';
+/* eslint-disable array-callback-return */
+import { Routes, Route } from "react-router-dom";
+import CategoriesPreview from "../categories-preview/categories-preview.component";
+import Category from "../category/category.component";
 
 const Services = () => {
 
-    const { services } = useContext(ServicesContext); 
-
     return (
-        <div className='services-container'>
-          {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </div>
-    )
+      <Routes>
+        <Route index element={<CategoriesPreview />} />
+        <Route path=":category" element={<Category />} />
+      </Routes>
+    );
 }
 
 export default Services;

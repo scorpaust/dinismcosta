@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { CartContext } from '../../context/cart.context';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import './checkout.styles.scss';
+import { CheckoutContainer } from './checkout.styles';
 
 const Checkout = () => {
 
     const { cartItems, cartTotal } = useContext(CartContext);
 
     return (
-        <div className='checkout-container'>
+        <CheckoutContainer>
             <div className='checkout-header'>
                 <div className="header-block">
                     <span>Serviço</span>
@@ -34,7 +34,7 @@ const Checkout = () => {
                 })
             }
             <span className='total'>Total: {cartTotal},00 €</span>
-        </div>
+        </CheckoutContainer>
     )
 }
 

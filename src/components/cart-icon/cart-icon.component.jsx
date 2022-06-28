@@ -1,7 +1,7 @@
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+
 import { useContext } from 'react';
 import { CartContext } from '../../context/cart.context';
-import './cart-icon.styles.scss';
+import { CartIconContainer, ShoppingIcon, ItemCount } from './cart-icon.styles';
 
 const CartIcon = () => {
 
@@ -10,10 +10,10 @@ const CartIcon = () => {
     const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
     return (
-        <div className='cart-icon-container' onClick={toggleIsCartOpen}>
-            <ShoppingBagOutlinedIcon className="shopping-icon" fontSize='large' />
-            <span className='item-count'>{cartCount}</span>
-        </div>
+        <CartIconContainer onClick={toggleIsCartOpen}>
+            <ShoppingIcon fontSize='large' />
+            <ItemCount>{cartCount}</ItemCount>
+        </CartIconContainer>
     );
 }
 

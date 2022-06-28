@@ -1,5 +1,5 @@
-import Button from "../button/button.component";
-import './service-card.styles.scss';
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import {ServiceCardContainer} from './service-card.styles';
 import { useContext } from "react";
 import { CartContext } from "../../context/cart.context";
 
@@ -11,14 +11,14 @@ const ServiceCard = ({ service }) => {
     const addServiceToCart = () => addItemToCart(service);
 
     return (
-        <div className="service-card-container">
+        <ServiceCardContainer>
             <img src={imageUrl} alt={`${name}`} />
             <div className="footer">
                 <span className="name">{name}</span>
-                <span className="price">{price}</span>
+                <span className="price">{`${price},00 €`}</span>
             </div>
-            <Button buttonType='inverted' onClick={addServiceToCart} >Adicionar ao Carrinho</Button>
-        </div>
+            <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addServiceToCart} >Adicionar ao Carrinho</Button>
+        </ServiceCardContainer>
     );
 }
 

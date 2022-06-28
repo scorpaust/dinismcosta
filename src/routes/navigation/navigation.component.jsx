@@ -1,11 +1,11 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Fragment, useContext } from "react";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { UserContext } from '../../context/user.context';
 import { CartContext } from "../../context/cart.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import './navigation.styles.scss';
+import { NavigationContainer, NavLinksContainer, NavLink, LogoContainer, LogoText } from './navigation.styles';
 
 const Navigation = () => {
 
@@ -19,33 +19,33 @@ const Navigation = () => {
 
     return (
         <Fragment>
-            <div className="navigation">
-                <Link className="logo-container" to="/">
-                    <div className="logo-text">Dinis Costa</div>
-                </Link>
-                <div className="nav-links-container">
+            <NavigationContainer>
+                <LogoContainer to="/">
+                    <LogoText>Dinis Costa</LogoText>
+                </LogoContainer>
+                <NavLinksContainer>
                     {
                         currentUser ? (
-                            <Link className="nav-link" to="/" onClick={signOutHandler}>SAIR</Link>
+                            <NavLink to="/" onClick={signOutHandler}>SAIR</NavLink>
                         ) : (
-                            <Link className="nav-link" to="/autenticacao">
+                            <NavLink to="/autenticacao">
                                 AUTENTICAÇÃO
-                            </Link>
+                            </NavLink>
                         )
                     }
-                    <Link className="nav-link" to="/sobre">
+                    {/* <NavLink to="/sobre">
                         SOBRE MIM
-                    </Link>
-                    <Link className="nav-link" to="/servicos">
+                    </NavLink> */}
+                    <NavLink to="/servicos">
                         SERVIÇOS
-                    </Link>
-                    <Link className="nav-link" to="/contato">
+                    </NavLink>
+                    {/* <NavLink to="/contato">
                         CONTATO
-                    </Link>
+                    </NavLink> */}
                     <CartIcon />
-                </div>   
+                </NavLinksContainer>   
                 {isCartOpen && <CartDropdown />}
-            </div>
+            </NavigationContainer>
             <Outlet />
         </Fragment>
     );
