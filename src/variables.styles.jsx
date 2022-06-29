@@ -1,0 +1,12 @@
+export const appTheme = {
+    appFontFamily: 'Oswald, sans serif',
+    codeFontFamily: 'source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace',
+    logoFontFamily: 'Parisienne',
+    color1: '#A6EBC9',
+    color2: '#444554',
+    color3: '#DCD6F7',
+    color4: '#A6B1E1',
+    color5: '#3E92CC'
+}
+
+
