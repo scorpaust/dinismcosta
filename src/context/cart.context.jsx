@@ -51,7 +51,7 @@ const INITIAL_STATE = {
     cartItems: [],
     cartCount: 0,
     cartTotal: 0,
-    isCartOpen: true
+    isCartOpen: false
 };
 
 const cartReducer = (state, action) => {
