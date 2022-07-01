@@ -1,7 +1,9 @@
 import { CategoryPreviewContainer, Title, Preview } from  './category-preview.styles';
 import ServiceCard from '../service-card/service-card.component';
 
+
 const CategoryPreview = ({ title, services }) => (
+
     <CategoryPreviewContainer>
       <h2>
         <Title to={title}>{title.toUpperCase()}</Title>

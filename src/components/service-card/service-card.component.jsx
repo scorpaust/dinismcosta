@@ -1,14 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems } from "../../store/cart/cart.selector";
+import { addItemToCart} from "../../store/cart/cart.action";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import {ServiceCardContainer} from './service-card.styles';
-import { useContext } from "react";
-import { CartContext } from "../../context/cart.context";
 
 const ServiceCard = ({ service }) => {
     const { name, imageUrl, price } = service;
 
-    const { addItemToCart } = useContext(CartContext);
+    const cartItems = useSelector(selectCartItems);
 
-    const addServiceToCart = () => addItemToCart(service);
+    const dispatch = useDispatch();
+
+    const addServiceToCart = () => dispatch(addItemToCart(cartItems, service));
 
     return (
         <ServiceCardContainer>
