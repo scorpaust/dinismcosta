@@ -4,15 +4,22 @@ import { useSelector } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
+import { selectCurrentUser } from '../../store/user/user.selector';
 
 const CartDropdown = () => {
 
     const cartItems  = useSelector(selectCartItems);
 
+    const currentUser = useSelector(selectCurrentUser);
+
     const navigate = useNavigate();
 
     const goToCheckoutHandler = () => {
         navigate('/finalizar-compra');
+    }
+
+    const goToAuthenticateHandler = () => {
+        navigate('/autenticacao');
     }
 
     return (
@@ -25,7 +32,10 @@ const CartDropdown = () => {
                 }
                 
             </CartItems>
-            <Button onClick={goToCheckoutHandler}>FINALIZAR COMPRA</Button>
+            {
+                currentUser ? <Button onClick={goToCheckoutHandler}>FINALIZAR COMPRA</Button> :
+                <Button onClick={goToAuthenticateHandler}>AUTENTICAR</Button>
+            }
         </CartDropdownContainer>
     )
 }
