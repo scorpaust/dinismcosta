@@ -4,6 +4,7 @@ import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { SignInFormContainer, ButtonsContainer } from  './sign-in-form.styles';
 import { useDispatch } from "react-redux";
 import { emailSignInStart, googleSignInStart } from "../../store/user/user.action";
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
     email: '',
@@ -14,6 +15,8 @@ const SignInForm = () => {
 
     const dispatch = useDispatch();
 
+    const navigate = useNavigate();
+
     const [formFields, setFormFields] = useState(defaultFormFields);
 
     const { email, password } = formFields;
@@ -23,9 +26,9 @@ const SignInForm = () => {
     }
 
     const SignInWithGoogle = async () => {
-        dispatch(googleSignInStart());
+        dispatch(googleSignInStart())
+        navigate("/", { replace: true });
     }
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,6 +39,7 @@ const SignInForm = () => {
                 password
                 ));
             resetFormFields();
+            navigate("/", { replace: true });
         } catch (error) {
             switch(error.code)
             {
