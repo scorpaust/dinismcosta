@@ -19,7 +19,7 @@ const categories = [
   {
     id: 3,
     title: 'Life Coach',
-    subtitle: 'Terapias Holísticas, Constelações Familiares e Consultoria Pessoal',
+    subtitle: 'Terapias Holísticas e Constelações Familiares',
     imageUrl: 'https://images.pexels.com/photos/4672438/pexels-photo-4672438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     route: 'servicos/life coach'
   }

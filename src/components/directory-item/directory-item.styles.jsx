@@ -9,28 +9,32 @@ export const BackgroundImage = styled.div`
 `;
   
 export const DirectoryItemBodyContainer = styled.div`
-  height: 90px;
-  padding: 0 25px;
-  display: flex;
-  flex-direction: column;
+  height: 110px;
+  width: 300px;
+  display: grid;
   align-items: center;
   justify-content: center;
   border: 1px solid #A6EBC9;
   background-color: #DCD6F7;
   opacity: 0.7;
+  padding: 10px;
   position: absolute;
+  padding-left: 15px;
+  padding-right: 15px;
 
-  h2 {
+  .title {
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
     color: #4a4a4a;
     text-transform: uppercase;
+    text-align: center;
   }
 
-  p {
+  .subtitle {
     font-weight: lighter;
     font-size: 16px;
+    text-align: center;
   }
 `;
 

@@ -13,8 +13,8 @@ const DirectoryItem = ({category}) => {
         <DirectoryItemContainer key={id} onClick={onNavigateHandler}>
         <BackgroundImage imageUrl={imageUrl}></BackgroundImage>
         <DirectoryItemBodyContainer>
-          <h2>{title}</h2>
-          <p>{subtitle}</p>
+          <h2 className='title'>{title}</h2>
+          <p className='subtitle'>{subtitle}</p>
         </DirectoryItemBodyContainer>
       </DirectoryItemContainer> 
     )

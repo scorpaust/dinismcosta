@@ -14,4 +14,12 @@ export const SignInFormContainer = styled.div`
 export const ButtonsContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    
+
+    @media (max-width: 600px) {
+        display: grid;
+    width: 300px;
+    row-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    }
 `;

@@ -20,7 +20,6 @@ export const ServiceCardContainer = styled.div`
     opacity: 0.7;
     position: absolute;
     top: 255px;
-    display: none;
   }
 
   &:hover {
@@ -39,7 +38,7 @@ export const ServiceCardContainer = styled.div`
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 14px;
 
     .name {
       width: 70%;
