@@ -8,6 +8,14 @@ import { useEffect } from "react";
 import { checkUserSession } from "./store/user/user.action";
 import { useDispatch } from "react-redux";
 
+const resizeOps = () => {
+  document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+};
+
+resizeOps();
+window.addEventListener("resize", resizeOps);
+
+
 const App = () => { 
 
   const dispatch = useDispatch();
