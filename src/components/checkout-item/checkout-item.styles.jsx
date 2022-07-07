@@ -9,6 +9,13 @@ export const CheckoutItemContainer = styled.div`
   font-size: 20px;
   align-items: center;
 
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 20px;
+    column-gap: 15px;
+    font-size: 16px;
+  }
+
   .image-container {
     width: 23%;
     padding-right: 15px;

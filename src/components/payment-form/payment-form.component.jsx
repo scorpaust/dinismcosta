@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import './card-style.styles.css';
 
 const PaymentForm = () => {
 
@@ -63,7 +64,7 @@ const PaymentForm = () => {
         <PaymentFormContainer>
             <FormContainer onSubmit={paymentHandler}>
                 <h2>Pagamento com Cartão de Crédito:</h2>
-                <CardElement />
+                <CardElement className="card-style" />
                 <PaymentButton isLoading={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}>Pagar</PaymentButton> 
             </FormContainer>
         </PaymentFormContainer>

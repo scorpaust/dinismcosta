@@ -8,6 +8,19 @@ export const CheckoutContainer = styled.div`
   align-items: center;
   margin: 50px auto 0;
 
+  @media (max-width: 600px) {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+
+    .total {
+      display: grid;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      justify-content: end;
+    }
+  }
+
   .checkout-header {
     width: 100%;
     padding: 10px 0;
@@ -30,4 +43,5 @@ export const CheckoutContainer = styled.div`
     margin-left: auto;
     font-size: 36px;
   }
+
 `;

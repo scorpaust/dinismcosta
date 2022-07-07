@@ -19,6 +19,11 @@ export const CartDropdownContainer = styled.div`
   ${InvertedButton} {
     margin-top: auto;
   }
+
+  @media (max-width: 600px) {
+    width: 250px;
+    height: 240px;
+  }
 `
 
 export const EmptyMessage = styled.span`
@@ -31,4 +36,8 @@ export const CartItems = styled.div`
   display: flex;
   flex-direction: column;
   overflow: scroll;
+
+  @media (max-width: 600px) {
+    height: 140px;
+  }
 `
