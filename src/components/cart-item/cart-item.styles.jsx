@@ -9,6 +9,7 @@ export const CartItemContainer = styled.div`
   img {
     width: 30%;
   }
+
 `;
 
 export const ItemDetails = styled.div`
@@ -22,4 +23,5 @@ export const ItemDetails = styled.div`
   .name {
     font-size: 14px;
   }
+
 `;

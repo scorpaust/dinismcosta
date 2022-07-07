@@ -14,6 +14,11 @@ export const CheckoutItemContainer = styled.div`
     padding: 20px;
     column-gap: 15px;
     font-size: 16px;
+
+    img {
+      min-width: 60px;
+      min-heigh: 60px;
+    }
   }
 
   .image-container {
