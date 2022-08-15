@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import { SignUpFormContainer} from './sign-up-form.styles';
@@ -24,13 +25,13 @@ const SignUpForm = () => {
         setFormFields(defaultFormFields);
     }
 
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
 
         setFormFields({ ...formFields, [name]: value })
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         
         if (password !== confirmPassword)
@@ -43,12 +44,12 @@ const SignUpForm = () => {
             dispatch(signUpStart(email, password, displayName));
             resetFormFields();
         } catch (error) {
-            if (error.code === 'auth/email-already-in-use') {
-                alert('Cannot create User. E-mail already in use.')
+            if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
+                alert('Não é possível criar utilizador/a. O e-mail já existe na nossa base de dados.')
             }
             else 
             {
-                console.log('User creation encountered an error', error);
+                console.log('Erro inesperado na criação de utilizador/a.', error);
             }
 
         }

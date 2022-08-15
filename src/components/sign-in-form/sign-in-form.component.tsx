@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent, ErrorInfo } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
 import FormInput from "../form-input/form-input.component";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { SignInFormContainer, ButtonsContainer } from  './sign-in-form.styles';
@@ -30,7 +31,7 @@ const SignInForm = () => {
         navigate("/", { replace: true });
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         
         try {
@@ -40,8 +41,8 @@ const SignInForm = () => {
                 ));
             resetFormFields();
             navigate("/", { replace: true });
-        } catch (error) {
-            switch(error.code)
+        } catch (error: any) {
+            switch(error.code as string)
             {
                 case 'auth/wrong-password':
                     alert('Senha Incorrecta.')
@@ -64,7 +65,7 @@ const SignInForm = () => {
 
     };
 
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
     
         setFormFields({ ...formFields, [name]: value });
