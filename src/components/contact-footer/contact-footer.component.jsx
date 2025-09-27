@@ -19,7 +19,7 @@ import {
 } from "./contact-footer.styles";
 
 const MESSAGE_MAX_LENGTH = 2500;
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${process.env.FORM_SUBMIT_TOKEN}`;
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/dinismiguelcosta@hotmail.com";
 
 const defaultFormValues = {
   name: "",
@@ -123,10 +123,11 @@ const ContactFooter = () => {
       });
 
       const result = await response.json().catch(() => null);
-      const isSuccessful =
-        result?.success === "true" || result?.success === true;
 
-      if (!response.ok || !isSuccessful) {
+      const isExplicitFailure =
+        result?.success === "false" || result?.success === false;
+
+      if (!response.ok || isExplicitFailure) {
         throw new Error("Não foi possível enviar o pedido.");
       }
 
