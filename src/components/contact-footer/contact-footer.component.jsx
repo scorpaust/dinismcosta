@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 
-import SERVICES_DATA from '../../services-data';
+import SERVICES_DATA from "../../services-data";
 
 import {
   ContactFooterContainer,
@@ -16,16 +16,16 @@ import {
   SelectControl,
   SubmitButton,
   TextAreaControl,
-} from './contact-footer.styles';
+} from "./contact-footer.styles";
 
 const MESSAGE_MAX_LENGTH = 2500;
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/dinismiguelcosta@hotmail.com';
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${process.env.FORM_SUBMIT_TOKEN}`;
 
 const defaultFormValues = {
-  name: '',
-  contact: '',
+  name: "",
+  contact: "",
   services: [],
-  message: '',
+  message: "",
 };
 
 const ContactFooter = () => {
@@ -39,7 +39,7 @@ const ContactFooter = () => {
     );
 
     return Array.from(new Set(serviceNames)).sort((first, second) =>
-      first.localeCompare(second, 'pt-PT', { sensitivity: 'base' })
+      first.localeCompare(second, "pt-PT", { sensitivity: "base" })
     );
   }, []);
 
@@ -74,16 +74,16 @@ const ContactFooter = () => {
 
     if (!formValues.name.trim() || !formValues.contact.trim()) {
       setFeedback({
-        status: 'error',
-        message: 'Por favor, preencha o nome e os contactos.',
+        status: "error",
+        message: "Por favor, preencha o nome e os contactos.",
       });
       return;
     }
 
     if (!formValues.message.trim()) {
       setFeedback({
-        status: 'error',
-        message: 'Escreva a sua mensagem antes de enviar.',
+        status: "error",
+        message: "Escreva a sua mensagem antes de enviar.",
       });
       return;
     }
@@ -96,50 +96,50 @@ const ContactFooter = () => {
       const trimmedMessage = formValues.message.trim();
       const servicesSummary =
         formValues.services.length > 0
-          ? formValues.services.join(', ')
-          : 'Não indicado';
+          ? formValues.services.join(", ")
+          : "Não indicado";
 
       const payload = {
         Nome: trimmedName,
         Contactos: trimmedContact,
-        'Serviços pretendidos': servicesSummary,
+        "Serviços pretendidos": servicesSummary,
         Mensagem: trimmedMessage,
-        _subject: 'Novo pedido de orçamento',
-        _captcha: 'false',
-        _template: 'table',
+        _subject: "Novo pedido de orçamento",
+        _captcha: "false",
+        _template: "table",
       };
 
-      if (trimmedContact.includes('@')) {
+      if (trimmedContact.includes("@")) {
         payload._replyto = trimmedContact;
       }
 
       const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
 
       const result = await response.json().catch(() => null);
       const isSuccessful =
-        result?.success === 'true' || result?.success === true;
+        result?.success === "true" || result?.success === true;
 
       if (!response.ok || !isSuccessful) {
-        throw new Error('Não foi possível enviar o pedido.');
+        throw new Error("Não foi possível enviar o pedido.");
       }
 
       setFeedback({
-        status: 'success',
-        message: 'Obrigado! O seu pedido foi enviado com sucesso.',
+        status: "success",
+        message: "Obrigado! O seu pedido foi enviado com sucesso.",
       });
       resetForm();
     } catch (error) {
       setFeedback({
-        status: 'error',
+        status: "error",
         message:
-          'Ocorreu um problema ao enviar o pedido. Por favor, tente novamente mais tarde.',
+          "Ocorreu um problema ao enviar o pedido. Por favor, tente novamente mais tarde.",
       });
     } finally {
       setIsSubmitting(false);
@@ -212,7 +212,7 @@ const ContactFooter = () => {
           </MessageCounter>
         </FieldControl>
         <SubmitButton type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'A enviar…' : 'Enviar Pedido'}
+          {isSubmitting ? "A enviar…" : "Enviar Pedido"}
         </SubmitButton>
         {feedback && (
           <FeedbackMessage status={feedback.status}>

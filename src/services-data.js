@@ -76,7 +76,7 @@ const SERVICES_DATA = [
         id: 9,
         name: "Mesa Radiónica de Apometria",
         imageUrl:
-          "https://guiadaalma-wp.s3.amazonaws.com/prd/b2c/wp-content/uploads/2023/10/21855-Mesa-Radionica-de-Apometria-1.jpeg",
+          "https://scorpaust.helioho.st/dinismcosta/mesa_radionica_apometria.jpg",
         price: 40,
       },
     ],
