@@ -1,3 +1,5 @@
+import mesaRadionicaImage from "./assets/mesa_radionica_apometria.jpg";
+
 const SERVICES_DATA = [
   {
     title: "Desenvolvimento Web",
@@ -75,8 +77,7 @@ const SERVICES_DATA = [
       {
         id: 9,
         name: "Mesa Radiónica de Apometria",
-        imageUrl:
-          "https://scorpaust.helioho.st/dinismcosta/mesa_radionica_apometria.jpg",
+        imageUrl: mesaRadionicaImage,
         price: 40,
       },
     ],
