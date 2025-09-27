@@ -50,6 +50,11 @@ export const FieldLabel = styled.label`
   font-weight: 600;
 `;
 
+export const FieldHint = styled.span`
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.75);
+`;
+
 const sharedInputStyles = css`
   width: 100%;
   border-radius: 0.5rem;
